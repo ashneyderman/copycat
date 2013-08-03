@@ -1,0 +1,89 @@
+<div class="span3">
+    <div class="mini-layout" style="height: 608px;">
+        <div style="height: 18%;">
+            <table width="100%">
+                <tr>
+                    <td style="vertical-align: top; padding-left: 5px;">
+                        <img src="img/android3.png"  width="48px" height="48px"><br>
+                        <button class="btn btn-mini" ng-click="logout()">Logout</button>
+                    </td>
+                    <td style="padding: 5px; font-size: 11px; text-align: left;">
+                        <span style="font-weight: bold;">{{client.active_user.first_name}} {{client.active_user.last_name}}</span><br>
+                        {{client.active_user.phone_num}}<br>
+                        {{client.active_user.ext}}<br>
+                        {{client.active_user.unit}}<br>
+                        {{client.active_user.title}}<br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="height: 80%; overflow: auto;" class="separator">
+            <div>
+                <div ng-repeat="user in client.directory.people.getValues()">
+                    <user converse="activateConv(user)" user="user"></user>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="span9">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="row-fluid" style="position: relative">
+                <!-- A little bit of an update -->
+                <div class="span12">
+                    <div ng-show="areas.a.visible" ng-animate=" 'animate' ">
+                        <conversation area="areas.a"
+                                      user="client.active_user"
+                                      location="a"></conversation>
+                    </div>
+                    <div class="mini-layout" ng-hide="areas.a.visible" ng-animate=" 'animate' "></div>
+                </div>
+            </div>
+            <div class="row-fluid" style="position: relative">
+                <div class="span12">
+                    <div ng-show="areas.b.visible"  ng-animate=" 'animate' ">
+                        <conversation area="areas.b"
+                                      user="client.active_user"
+                                      location="b"></conversation>
+                    </div>
+                    <div class="mini-layout" ng-hide="areas.b.visible" ng-animate=" 'animate' "></div>
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="span12">
+                <p>
+                    Single-click on the person's name to start up a conversation or open a hidden one.
+                    You can have only two conversations visible at a time.
+                </p>
+                <p>
+                    To the left of the person's name there is a button indicating status:
+                    <ul>
+                        <li><img src="img/icon_online.png"> - indicates person is online</li>
+                        <li><img src="img/icon_offline.png"> - indicates person is offline</li>
+                    </ul>
+                </p>
+                <p>
+                    If you want to produce multiple auto-generated messages on the interval of
+                    2 seconds, use the circular arrow button next to close button. That is a toggle
+                    button, so clicking it once will start the message production, clicking it again
+                    will pause it.
+                </p>
+                <p>
+                    KNOWN ISSUE 0: when a message arrives (from anyone on the roster) and conversation
+                    is not visible client does not open it up automatically. Messages arrive in the
+                    conversations that are not displayed just fine but user needs to open the conversation
+                    to see the arrived messages.
+                </p>
+                <p>
+                    KNOWN ISSUE 1: do not use reload button of your browser.
+                </p>
+                <p>
+                    KNOWN ISSUE 2: messages sent to users that are offline will be lost. We do not have
+                    offline message storage implemented on the backend.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

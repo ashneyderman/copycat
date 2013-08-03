@@ -1,0 +1,47 @@
+<div class="span3">
+    <div ng-show="!client.authenticated">
+        <div ng-show="message == 'warning'" class="alert">
+            {{warning}}
+        </div>
+        <div ng-show="message == 'error'" class="alert alert-error">
+            {{error}}
+        </div>
+        <form name="loginForm" novalidate>
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-user"></i></span>
+                <input type="text" id="username" placeholder="Username"
+                       class="input-medium"
+                       ng-model="username" required>
+            </div><br>
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-check"></i></span>
+                <input type="password" id="password" placeholder="Password"
+                       class="input-medium"
+                       ng-model="password" required>
+            </div><br>
+            <button class="btn btn-primary"
+                    ng-click="login()">Login</button>
+        </form>
+    </div>
+    <div ng-show="client.authenticated">
+        <div ng-show="message == 'warning'" class="alert">
+            {{warning}}
+        </div>
+        <button class="btn btn-primary"
+                ng-click="logout()">Logout</button>
+    </div>
+</div>
+<div class="span9">
+    <p>
+        Please, login.
+    </p>
+    <p>
+        Use one of the following usernames: brad, mireille, david, daniella, abigail, matthew, ludi, fana, james, elyes.
+        Password is the same for all users: secret.
+    </p>
+    <p>
+        For the app to be meaningful you should probably login with two different users at the same time. So you can
+        exchange messages with the otehr session. You can login as many times as you want by opening multiple tabs in
+        Chrome.
+    </p>
+</div>

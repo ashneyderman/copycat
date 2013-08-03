@@ -1,0 +1,16 @@
+{application, copycat,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  lager,
+                  crypto,
+                  ranch,
+                  cowboy
+                 ]},
+  {mod, { copycat_app, []}},
+  {env, []}
+ ]}.

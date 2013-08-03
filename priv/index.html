@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app="refClient">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopyCat - v_Meow</title>
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+    <div id="overlay" ng-show='disconnected'>
+        {{progress_msg}}
+    </div>
+    <div class="container">
+        <div class="row-fluid">&nbsp;</div>
+        <div class="row-fluid">
+            <div ng-view></div>
+        </div>
+        <div class="row-fluid">
+            <div class="text-right navbar-text">© 2013 Alex Shneyderman - All Rights Reserved</div>
+        </div>
+    </div>
+
+    <script src="lib/base2/base2.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="js/copycat_msg.js"></script>
+    <script src="js/copycat_model.js"></script>
+    <script src="js/copycat_comms.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+</body>
+</html>
